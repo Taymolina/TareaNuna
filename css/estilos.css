@@ -1,149 +1,160 @@
-* {
-	margin: 0;
-	padding: 0;
+P {color:rgb(48, 10, 10); 
+    font-size:15px;
+    font-family:Courier;
+    font-weight:bold;
+    font-style:arial;
+    line-height:20px;
+    letter-spacing:5px;
+    text-transform:normal;
+    text-align:center;
+    text-indent:18px;
+   }
+     
+     
+     h1,h2,h3,h4,h5,h6 {color:red;}
+     h1{font size:100px;}
+p{color:brown}
+
+@import url('https://fonts.googleapis.com/css?family=Arima+Madurai:300');
+
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
 }
 
-a {
-	text-decoration: none;
-	outline: none;
+h1 {
+	font-family: 'Arima Madurai', cursive;
+	color: black;
+	font-size: 4rem;
+	letter-spacing: -3px;
+	text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
+	position: relative;
+	z-index: 3;
 }
 
-a:hover {
-	text-decoration: underline;
-}
-
-body {
-    font-family: 'Noto Sans JP', sans-serif;	
-	background: #f2f2f2;
-}
-
-/* * ============================== */
-/* * ============ HEADER ========== */
-/* * ============================== */
-
-.navbar {
-	background: #FFCD48;
-}
-
-.navbar a {
-	color: #fff;
-	display: inline-block;
-	padding: 20px;
-	width: 100%;
-	text-align: center;
-	color: #000;
-	transition: .3s ease-out all;
-}
-
-.navbar a:hover {
-	background: #1D2F3D;
-	color: #fff;
-	text-decoration: none;
-}
-
-.contenedor {
-	max-width: 1000px;
-	width: 90%;
-	margin: auto;
+.container {
+	z-index: 1;
+	position: relative;
+	overflow: hidden;
 	display: flex;
-	justify-content: space-between;
+	align-items: center;
+	justify-content: center;
+	// min-height: 100vh;
+	min-height: 35rem;
+	background-image: linear-gradient(to bottom,  rgba(255,168,76,0.6) 0%,rgba(255,123,13,0.6) 100%), url('https://images.unsplash.com/photo-1446824505046-e43605ffb17f');
+	background-blend-mode: soft-light;
+	background-size: cover;
+	background-position: center center;
+	padding: 2rem;
 }
 
-/* * ============================== */
-/* * ===== CONTENEDOR IMAGEN ====== */
-/* * ============================== */
-
-.contenedor-imagen {
-	height: 100vh;
+.bird {
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
+	background-size: auto 100%;
+	width: 352px;
+	height: 500px;
+	will-change: background-position;
+	
+	animation-name: fly-cycle;
+	animation-duration: 1s;
+	animation-delay: -0.5s;
+	animation-timing-function: steps(10);
+	animation-iteration-count: infinite;
 }
 
-.contenedor-imagen img {
-	width: 100%;
-	height: 100%;
-	vertical-align: top;
-	object-fit: cover;
-	object-position: 0 bottom;
+.bird-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	will-change: transform;
 }
 
-/* * ============================== */
-/* * ============ MAIN ============ */
-/* * ============================== */
-
-main {
+@keyframes fly-cycle {
+	
+	100% {
+		background-position: -3600px 0;
+	}
+	
+}
+.bird--one {
+  animation-duration: 1s;
+  animation-delay: -0.5s;
+}
+.bird--two {
+  animation-duration: 0.9s;
+  animation-delay: -0.75s;
+}
+.container {
+	position: relative;
+	z-index: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	min-height: 100vh;
-}
-
-main .contenido p {
-	margin-bottom: 20px;
-	line-height: 30px;
-	color: #525151;
-}
-
-main .contenido .titulo {
-    font-family: 'Montserrat', sans-serif;
-	font-weight: normal;
-	padding-top: 40px;
-}
-
-main .contenido .fecha {
-	font-size: 14px;
-	color: #B5B5B5;
-}
-
-/* * ============================== */
-/* * ============ ASIDE =========== */
-/* * ============================== */
-
-aside {
-	min-width: 30%;
-	margin: 40px 20px 20px 0;
-	height: 100%;
-	background: #1D2F3D;
-	padding: 20px;
-	border-radius: 3px;
-}
-
-aside .titulo {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: normal;
-	font-size: 24px;
-	margin-bottom: 20px;
-	color: #f2f2f2;
-}
-
-aside .indice a {
-	display: block;
-	margin-bottom: 10px;
-	color: #FFCD48;
-}
-
-/* * ============================== */
-/* * ========== FOOTER ============ */
-/* * ============================== */
-
-
-
-/* * ============================== */
-/* * ====== MEDIA QUERIES ========= */
-/* * ============================== */
-@media screen and (max-width: 900px){
-	.navbar .contenedor {
-		flex-wrap: wrap;
-		margin: 0;
+	background-color: #01161e;
+	overflow: hidden;
+	
+	&__background {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
 		width: 100%;
+		height: 100%;
+		background-image: url('https://images.unsplash.com/photo-1500241770736-a3f62bbc8717');
+		background-size: 150%;
+		background-position: center center;
+		animation: move 30s infinite linear;
+		will-change: transform;
 	}
+	
+}
 
-	.navbar a {
-		width: auto;
-		flex: 1;
+.mask-container {
+	position: relative;
+	display: block;
+	width: 100%;
+	// margin: 5rem 0;
+	
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		width: 5000%;
+		height: 300%;
+		left: 0;
+		background-color: #01161e;
 	}
+	
+	&::before {
+		top: -295%;
+	}
+	
+	&::after {
+		bottom: -295%;
+	}
+}
 
-	.contenedor-imagen {
-		height: 50vh;
-	}
+svg {
+	width: 100%;
+	height: auto;
+	// max-width: 1024px;	
+}
 
-	main .contenedor {
-		flex-direction: column;
+@keyframes move {
+	
+	25% {
+		transform: translateY(50px) translateX(0);
 	}
+	
+	50% {
+		transform: translateY(0px) translateX(50px);
+	}
+	
+	75% {
+		transform: translateY(50px) translateX(0);
+	}
+	
 }
